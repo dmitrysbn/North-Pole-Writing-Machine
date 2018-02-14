@@ -1,0 +1,44 @@
+<%= street_number + " " + street_name + " " + street_suffix %>
+Toronto, ON
+<%= postal_code %>
+
+December 26, 2017
+
+Attention: <%= name.capitalize %>'s Parents
+
+Re: Christmas Toy Invoice
+
+Below are the charges for <%= name.capitalize %>'s Christmas toy order. The cost for each toy is a percentage of your home's estimated value. The cost includes delivery fee, service fee and the North Pole transportation tax. HST is separate.
+
+=================
+<%= name.capitalize %>'s Toy Order
+=================
+
+<% if behavior == 'naughty' -%>
+$<%= toy_price.to_s %>  Defective toy
+<% else -%>
+<% toys.each do |toy| -%>
+<% if toy == 'Kaleidoscope' && toy_price == 1_000 -%>
+$<%= '0' %>     <%= toy %> (out of stock)
+<% elsif toy == 'Kaleidoscope' -%>
+$<%= '0' %>    <%= toy %> (out of stock)
+<% else -%>
+$<%= toy_price.to_s %>  <%= toy %>
+<% end -%>
+<% end -%>
+<% end -%>
+----
+$<%= subtotal %>  Subtotal
+$<%= tax %>   HST
+====
+$<%= total %>  Total
+
+Your total comes to $<%= total %>. Payment is due upon receipt of invoice. Should you fail to submit prompt payment we will repossess all toys in this order by January 7. I encourage you to imagine the tantrum that will ensue should all of <%= name.capitalize %>'s toys suddenly disappear.
+
+Due to a high number of NSF incidents we no longer accept personal cheques. Please make all payments through PayPal, Interac e-transfer or certified cheque.
+
+Sincerely,
+
+Guido the Elf,
+Collections Department
+Santa's Village
